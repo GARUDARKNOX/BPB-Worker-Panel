@@ -199,7 +199,7 @@ export default {
                         });
 
                     default:
-                        // return new Response('Not found', { status: 404 });
+                        return new Response('Not found', { status: 404 });
                         url.hostname = 'www.speedtest.net';
                         url.protocol = 'https:';
                         request = new Request(url, request);
@@ -219,7 +219,7 @@ export default {
 /**
  * Handles VLESS over WebSocket requests by creating a WebSocket pair, accepting the WebSocket connection, and processing the VLESS header.
  * @param {import("@cloudflare/workers-types").Request} request The incoming request object.
- * @returns {Promise<Response>} A Promise that resolves to a WebSocket response object.
+ * @returns {Promise} A Promise that resolves to A WebSocket response object.
  */
 async function vlessOverWSHandler(request) {
 	const webSocketPair = new WebSocketPair();
